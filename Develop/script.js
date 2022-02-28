@@ -15,7 +15,7 @@ var password = ""
     uppercaseAsk();
     numericAsk();
     specialAsk();
-    chooseArray();
+    // chooseArray();
     makePassword();
 
  };
@@ -115,13 +115,13 @@ var makePassword =function(){
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
+
+  var password = makePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
-}
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
