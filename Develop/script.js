@@ -10,13 +10,15 @@ var password = ""
 
  var writePassword = function(){
 
-    charactersAmount();
-    lowercaseAsk();
-    uppercaseAsk();
-    numericAsk();
-    specialAsk();
-    // chooseArray();
-    makePassword();
+    var password = makePassword();
+    passwordText.value = password;
+    // charactersAmount();
+    // lowercaseAsk();
+    // uppercaseAsk();
+    // numericAsk();
+    // specialAsk();
+    // // chooseArray();
+    // makePassword();
 
  };
  
@@ -30,9 +32,7 @@ var charactersAmount = function(){
   }
   return numberCharacters;
 };
-numberOfCharacters = charactersAmount();
-numberOfCharactersInt = parseInt(numberOfCharacters);
-console.log(numberOfCharacters);
+
 
 var specialCharacters = {
   lowercase: false,
@@ -45,29 +45,25 @@ var lowercaseAsk = function(){
   specialCharacters.lowercase = window.confirm("Would you like your password to contain lowercase letters?");
   return specialCharacters.lowercase;
 };
-lowerCaseYesNo = lowercaseAsk();
-console.log(lowerCaseYesNo);
+
 
 var uppercaseAsk = function(){
   specialCharacters.uppercase = window.confirm("Would you like your password to contain uppercase letters?");
 return specialCharacters.uppercase;
 };
-upperCaseYesNo = uppercaseAsk();
-console.log(upperCaseYesNo);
+
 
 var numericAsk = function(){
   specialCharacters.numeric = window.confirm("Would you like your password to contain numbers?");
 return specialCharacters.numeric;
 };
-numericYesNo = numericAsk();
-console.log(numericYesNo);
+
 
 var specialAsk = function(){
   specialCharacters.special = window.confirm("Would you like your password to contain special characters?");
 return specialCharacters.special;
 };
-specialYesNo = specialAsk();
-console.log(specialYesNo);
+
 
 // var chooseArray = function(){
 //     const randomIndex = Math.floor(Math.random() * whichArray.length);
@@ -80,6 +76,21 @@ console.log(specialYesNo);
 // arrayChosen = chooseArray();
 
 var makePassword =function(){
+  numberOfCharacters = charactersAmount();
+  numberOfCharactersInt = parseInt(numberOfCharacters); 
+  console.log(numberOfCharacters);
+
+  lowerCaseYesNo = lowercaseAsk();
+  console.log(lowerCaseYesNo);
+
+  upperCaseYesNo = uppercaseAsk();
+  console.log(upperCaseYesNo);
+
+  numericYesNo = numericAsk();
+  console.log(numericYesNo);
+
+  specialYesNo = specialAsk();
+  console.log(specialYesNo);  
 
     if(lowerCaseYesNo){
         useArray = useArray.concat(lowerArray);
@@ -108,20 +119,21 @@ var makePassword =function(){
     return password;
     };
 
-    donePassword = makePassword();
-    console.log(donePassword);
+    // donePassword = makePassword();
+    // console.log(donePassword);
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 
-  var password = makePassword();
+  // var password = makePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  // passwordText.value = password;
 
 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
